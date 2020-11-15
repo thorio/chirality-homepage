@@ -29,6 +29,7 @@ HTML:
   beautifiers:
     - JS-Beautify
   << : *jsbeautify
+  indent_inner_html: true
 
 Less:
   beautifiers:
@@ -41,3 +42,9 @@ Less:
   no_leading_zero: true
   quotes: double
   wrap_line_length: 99
+
+Vue:
+  beautifiers:
+    - Prettier
+  indent_style: tab
+  trailing_comma: all

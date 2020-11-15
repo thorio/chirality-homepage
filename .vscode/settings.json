@@ -1,5 +1,23 @@
 {
 	"editor.defaultFormatter": "Glavin001.unibeautify-vscode",
+	"[vue]": {
+		"editor.defaultFormatter": "octref.vetur",
+	},
+	"vetur.format.options.useTabs": true,
+	"vetur.format.options.tabSize": 4,
+	"vetur.format.defaultFormatter.js": "prettier",
+	"vetur.format.defaultFormatter.html": "js-beautify-html",
+	"vetur.format.defaultFormatterOptions": {
+		"prettier": {
+			"singleQuote": false,
+			"semi": true,
+		},
+		"js-beautify-html": {
+			"wrap_attributes": false,
+			"end_with_newline": true,
+			"brace_style": "collapse,preserve-inline",
+		}
+	},
 	"files.exclude": {
 		".github": true,
 		"build": true,
