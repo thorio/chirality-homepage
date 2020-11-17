@@ -9,9 +9,6 @@ module.exports = {
 		"eslint:recommended",
 		"plugin:vue/vue3-essential",
 	],
-	"globals": {
-		"_paq": "readonly", // matomo tracking script
-	},
 	"parserOptions": {
 		"sourceType": "module",
 		"parser": "babel-eslint",
@@ -29,7 +26,7 @@ module.exports = {
 			"objects": "always-multiline",
 		}],
 		"no-constant-condition": ["warn", {
-			"checkLoops": false, // erlaubt while (true) loops
+			"checkLoops": false,
 		}],
 		"no-var": "error",
 		"quotes": "warn",

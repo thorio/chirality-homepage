@@ -1,7 +1,7 @@
 <template>
 	<header>
 		<div class="item">
-			<img src="../assets/favicon.svg" alt="" />
+			<img src="../assets/logo.svg" alt="" />
 			<span>Chirality</span>
 		</div>
 		<div class="item right">
