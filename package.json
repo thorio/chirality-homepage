@@ -3,44 +3,33 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"watch": "vue-cli-service serve:bs",
-		"build": "vue-cli-service build",
+		"watch": "gulp watch",
+		"build": "gulp build",
 		"lint": "vue-cli-service lint"
 	},
 	"dependencies": {
-		"core-js": "^3.6.5",
-		"favicons-webpack-plugin": "^2.1.0",
+		"express": "^4.17.1",
 		"vue": "^3.0.0"
 	},
 	"devDependencies": {
-		"@vue/cli-plugin-babel": "~4.5.0",
-		"@vue/cli-plugin-eslint": "~4.5.0",
-		"@vue/cli-service": "~4.5.0",
+		"@babel/preset-env": "^7.12.7",
+		"@vue/cli-plugin-babel": "^4.5.0",
+		"@vue/cli-plugin-eslint": "^4.5.0",
+		"@vue/cli-service": "^4.5.0",
 		"@vue/compiler-sfc": "^3.0.0",
 		"babel-eslint": "^10.1.0",
+		"babelify": "^10.0.0",
+		"browserify": "^17.0.0",
+		"copy-webpack-plugin": "^6.3.2",
+		"del": "^6.0.0",
 		"eslint": "^6.7.2",
 		"eslint-plugin-vue": "^7.0.0-0",
-		"vue-cli-plugin-browser-sync": "~1.0.0-rc5",
+		"gulp": "^4.0.2",
+		"gulp-exec": "^5.0.0",
+		"gulp-nodemon": "^2.5.0",
+		"vinyl-source-stream": "^2.0.0",
+		"watchify": "^3.11.1",
 		"webpack-dev-middleware": "^4.0.2",
 		"webpack-hot-middleware": "^2.25.0"
-	},
-	"eslintConfig": {
-		"root": true,
-		"env": {
-			"node": true
-		},
-		"extends": [
-			"plugin:vue/vue3-essential",
-			"eslint:recommended"
-		],
-		"parserOptions": {
-			"parser": "babel-eslint"
-		},
-		"rules": {}
-	},
-	"browserslist": [
-		"> 1%",
-		"last 2 versions",
-		"not dead"
-	]
+	}
 }

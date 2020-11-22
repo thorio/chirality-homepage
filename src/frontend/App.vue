@@ -52,6 +52,11 @@ export default {
 					icon: "/icons/traefik.png",
 					url: "https://grafana.chirality.de",
 				},
+				{
+					title: "Test",
+					icon: "/icons/default.png",
+					url: "https://grafana.chirality.de",
+				},
 			],
 		};
 	},

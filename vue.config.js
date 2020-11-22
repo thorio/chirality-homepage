@@ -1,27 +1,34 @@
 /* eslint-env node */
-const webpack = require("webpack");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
+const src_dir = "src/frontend",
+	dest_dir = "build/public";
 
 module.exports = {
-	outputDir: "build/public",
+	outputDir: dest_dir,
 	pages: {
 		index: {
-			entry: "src/client/main.js",
-			template: "src/client/index.html",
+			entry: `${src_dir}/main.js`,
+			template: `${src_dir}/index.html`,
 			title: "Chirality - Home",
 		},
 	},
-	filenameHashing: false,
+	devServer: {
+		port: 3000,
+		proxy: {
+			"^/api": {
+				target: "http://localhost:5000",
+			},
+		},
+	},
 	configureWebpack: () => {
 		return {
-			plugins: [new webpack.HotModuleReplacementPlugin()],
+			plugins: [new CopyWebpackPlugin({
+				patterns: [
+					{ from: "**/*", context: `${src_dir}/static/` },
+					{ from: `${src_dir}/assets/logo.svg`, to: "favicon.svg" },
+				],
+			})],
 		};
-	},
-	pluginOptions: {
-		browserSync: {
-			// proxy: {
-			// 	target: "http://localhost:3010",
-			// },
-			port: 3000,
-		},
 	},
 };
