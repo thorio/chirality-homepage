@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"glavin001.unibeautify-vscode",
+		"dbaeumer.vscode-eslint",
+		"philfontaine.autolaunch",
+		"octref.vetur",
+	],
+	"unwantedRecommendations": []
+}

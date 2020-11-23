@@ -4,9 +4,9 @@
 			<img src="../assets/logo.svg" alt="" />
 			<span>Chirality</span>
 		</div>
-		<div class="item right">
+		<div class="item user" :class="{ loading: isLoading }">
 			<span class="sm">{{ username }}</span>
-			<button>logout</button>
+			<a href="/logout">Logout</a>
 		</div>
 	</header>
 </template>
@@ -16,41 +16,69 @@ export default {
 	name: "TileContainer",
 	props: {
 		username: String,
-		logoutLink: String,
+		isLoading: Boolean,
 	},
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "../scss/breakpoints.scss";
+@import "../scss/colors.scss";
+
 header {
-	background-color: #202225;
+	background-color: $cl-background-dark;
 	font-size: 20pt;
-	padding: 0.3em 1em;
 	font-family: Roboto, Helvetica, Arial, sans-serif;
 	display: flex;
 	flex-direction: row;
+	padding: 0.3em 0.3em;
+
+	@include media-breakpoint-up(md) {
+		padding: 0.3em 1em;
+	}
 }
 
 .item {
 	display: flex;
 	flex-direction: row;
+
+	&.user {
+		margin-left: auto;
+	}
+
+	&.loading {
+		filter: brightness(1.3);
+		border-radius: 1em;
+		width: 10ch;
+	}
+
+	img {
+		height: 1em;
+		margin: auto 0;
+	}
 }
 
-.item img {
-	height: 1em;
+.sm {
 	margin: auto 0;
-}
-
-.right {
-	margin-left: auto;
-}
-
-span.sm {
 	font-size: 0.7em;
+
+	@include media-breakpoint-down(xxs) {
+		display: none;
+	}
 }
 
-button {
-	background-color: #fff;
+a {
+	font-size: 0.55em;
+	line-height: 2.2em;
+	text-decoration: none;
+	background-color: #303339;
 	border: none;
+	color: inherit;
+	padding: 1px 6px;
+	margin-left: 0.7em;
+
+	&:hover {
+		filter: brightness(1.1);
+	}
 }
 </style>

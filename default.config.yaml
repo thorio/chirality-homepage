@@ -1,0 +1,18 @@
+port: 5000
+logoutUrl: https://example.com/logout
+services:
+  - name: Demo Service 1
+    icon: default.png
+    url: https://example.com
+  - name: Demo Service 2
+    group: service2
+    icon: default.png
+    url: https://example.com
+  - name: Demo Service 3
+    group: service3
+    icon: default.png
+    url: https://example.com
+  - name: Demo Service 4
+    group: service4
+    icon: default.png
+    url: https://example.com

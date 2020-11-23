@@ -1,9 +1,10 @@
 <template>
-	<Header :username="username" logoutLink="/logout" />
-	<TileContainer :tiles="tiles" />
+	<Header :username="user.name" :isLoading="isLoading" />
+	<TileContainer />
 </template>
 
 <script>
+import { getUser } from "./api";
 import Header from "./components/Header.vue";
 import TileContainer from "./components/TileContainer.vue";
 
@@ -15,63 +16,46 @@ export default {
 	},
 	data() {
 		return {
-			username: "ok b",
-			tiles: [
-				{
-					title: "Grafana",
-					icon: "/icons/grafana.png",
-					url: "https://grafana.chirality.de",
-				},
-				{
-					title: "Home Assistant",
-					icon: "/icons/homeassistant.png",
-					url: "https://hass.chirality.de",
-				},
-				{
-					title: "Nextcloud",
-					icon: "/icons/nextcloud.png",
-					url: "https://grafana.chirality.de",
-				},
-				{
-					title: "Octoprint",
-					icon: "/icons/octoprint.png",
-					url: "https://grafana.chirality.de",
-				},
-				{
-					title: "Pihole",
-					icon: "/icons/pihole.png",
-					url: "https://plex.chirality.de",
-				},
-				{
-					title: "Plex",
-					icon: "/icons/plex.png",
-					url: "https://grafana.chirality.de",
-				},
-				{
-					title: "Traefik",
-					icon: "/icons/traefik.png",
-					url: "https://grafana.chirality.de",
-				},
-				{
-					title: "Test",
-					icon: "/icons/default.png",
-					url: "https://grafana.chirality.de",
-				},
-			],
+			isLoading: true,
+			// skeleton
+			user: { name: "" },
 		};
+	},
+	created() {
+		getUser().then((data) => {
+			this.user.name = data.name;
+			this.isLoading = false;
+		});
 	},
 };
 </script>
 
-<style>
+<style lang="scss">
+@use "./scss/loadingShimmer.scss";
+@import "./scss/colors.scss";
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+
 body {
 	margin: 0;
-	background-color: #272c30;
+	background-color: $cl-background;
 }
 
 #app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	color: #dcddde;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+*:focus {
+	outline: 1px solid #777;
 }
 </style>

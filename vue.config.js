@@ -18,6 +18,12 @@ module.exports = {
 		proxy: {
 			"^/api": {
 				target: "http://localhost:5000",
+				headers: {
+					"Remote-User": "demouser",
+					"Remote-Groups": "service1,service2,service3,admin",
+					"Remote-Email": "user@example.com",
+					"Remote-Name": "Demo User",
+				},
 			},
 		},
 	},
