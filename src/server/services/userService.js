@@ -10,10 +10,17 @@ const RemoteName = "Remote-Name";
  * @returns {User}
  */
 export function getUser(req) {
+	let user = req.header(RemoteUser);
+	let groups = req.header(RemoteGroups) || "";
+
+	if (!user) {
+		throw new Error("Remote-User header is not set");
+	}
+
 	return {
 		user: req.header(RemoteUser),
 		name: req.header(RemoteName),
 		email: req.header(RemoteEmail),
-		groups: req.header(RemoteGroups).split(","),
+		groups: groups.split(","),
 	};
 }
