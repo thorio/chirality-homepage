@@ -2,7 +2,7 @@
 	"presets": [
 		["@vue/cli-plugin-babel/preset", {
 			"targets": {
-				"browsers": ["> 2%, not dead"]
+				"node": "12"
 			}
 		}]
 	],
