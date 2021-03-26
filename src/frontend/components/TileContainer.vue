@@ -2,7 +2,7 @@
 	<section>
 		<a class="tile" :class="{ loading: isLoading }" v-for="tile in tiles" :key="tile.title" :href="tile.url">
 			<div class="image-container">
-				<img :src="`/icons/${tile.icon}`" alt="" />
+				<img :src="`/icons/${tile.icon}`" alt="" v-if="!isLoading" />
 			</div>
 			<p>{{ tile.name }}</p>
 		</a>
