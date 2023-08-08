@@ -1,3 +1,5 @@
+# Superseded by https://github.com/thorio/website
+
 # chirality-homepage
 
 A custom application dashboard for my homelab, designed to work in conjuction with [traefik][1] and [authelia][2].  
